@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <div class="container">
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const resultsList = document.getElementById('resultsList');
+            const noResults = document.getElementById('noResults');
+
+            // Törlés előző találatokat
+            resultsList.innerHTML = '';
+
+            // Szimulált adatok (ezt cseréld ki a saját adatforrásodra)
+            const data = ['Alma', 'Körte', 'Szilva', 'Banán', 'Narancs'];
+
+            // Találatok keresése és megjelenítése
+            let hasResults = false;
+            for (let item of data) {
+                if (item.toLowerCase().includes(searchInput)) {
+                    hasResults = true;
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    resultsList.appendChild(li);
+                }
+            }
+
+            // Ha nincs találat, jelenítsd meg az üzenetet
+            if (!hasResults) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+
+        const routes = {
+            "home": "home.html",
+            "about": "about.html",
+            "projects": "projects.html",
+            "contacts": "contacts.html"
+        }
+
+        const loadPage = async (url, domObj) => {
+            const response = await fetch(url)
+            const html = await response.text()
+            domObj.innerHTML = html
+        }
+
+        loadPage(routes[window.location.hash.substring(2)], document.querySelector(".container"))
+
+        let obj = document.querySelector(".container")
+        //loadPage("home.html",obj)
+
+        window.addEventListener("hashchange", () => {
+            //console.log(window.location.hash);
+            navigate()
+        })
+
+        function navigate() {
+            let hash = window.location.hash.substring(2)
+            console.log(hash);
+            let page = routes[hash] || "404.html"
+            loadPage(page, document.querySelector(".container"))
+        }
+    </script>
+</body>
+</html>

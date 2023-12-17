@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
@@ -19,14 +20,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#/home" id="navImg">
+        <a class="navbar-brand" href="#/" id="navImg">
           <i class="fa-solid fa-house-chimney fa-lg"></i>
           Home
         </a>
@@ -37,32 +37,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#/">ID's</a>
+              <a class="nav-link active" aria-current="page" href="#/ids">ID's</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#/">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#/">Action</a></li>
-                <li><a class="dropdown-item" href="#/">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#/">Something else here</a></li>
-              </ul>
+              <a class="nav-link active" aria-current="page" href="#/popular">Link</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#/" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link disabled" href="#/404" tabindex="-1" aria-disabled="true">Under construction</a>
             </li>
           </ul>
           <div class="d-flex dropdown">
             <input class="form-control me-2 dropdown-toggle" id="searchInput" onkeyup="search()"
-              data-bs-toggle="dropdown" type="text" placeholder="Search something..." aria-label="Search"
+              data-bs-toggle="dropdown" type="text" placeholder="Click to hide/show results" aria-label="Search"
               aria-expanded="false">
             <ul class="dropdown-menu" id="searchResults" aria-labelledby="searchInput">
               <li><a class="dropdown-item" href="#/">fasz</a></li>
@@ -73,21 +59,34 @@
               </li>
               <li><a class="dropdown-item" href="#/">All ID's</a></li>
             </ul>
-            <a id="searchButton" href="#/results"><button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+            <a id="searchButton" href="#/results"><button class="btn btn-outline-success" type="submit"><i
+                  class="fa-solid fa-magnifying-glass"></i></button></a>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
-  <main>
-    <div class="container">
-
-    </div>
+  <main class="flex-shrink-0">
+    <div class="container"></div>
   </main>
 
-  <footer>
-
+  <footer class="fixed-bottom">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-2">
+        <h5 class="text-white h2">Collapsed content</h5>
+        <span class="text-muted">Toggleable via the navbar brand.</span>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
   </footer>
 
   <script defer src="search.js"></script>
@@ -96,10 +95,11 @@
     let container = document.querySelector(".container")
 
     const routes = {
-      "home": "home.html",
-      "about": "about.html",
-      "projects": "projects.html",
-      "results": "results.html"
+      "": "home.html",
+      "ids": "ids.html",
+      "popular": "popular.html",
+      "results": "results.html",
+      "404": "404.html"
     }
 
     const loadPage = async (url, domObj) => {

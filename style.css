@@ -1,3 +1,37 @@
-footer{
+footer {
     background-color: black;
+}
+
+#footerNavButton {
+    max-height: 30px;
+    align-items: center;
+}
+
+#mainContainer {
+    padding-bottom: 60px;
+    margin-top: 10px;
+    display: flex;
+    margin-left: 160px;
+}
+
+.card>img, .card {
+    object-fit: cover;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 15px;
+    padding: 0;
+}
+
+.card {
+    margin: 2.5px;
+}
+
+#IDsideBar {
+    height: fit-content;
+    width: 160px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+    transition: 0.5s;
 }

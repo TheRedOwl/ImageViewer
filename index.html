@@ -67,7 +67,7 @@
     </nav>
   </header>
 
-  <main class="flex-shrink-0">
+  <main>
     <div id="IDsideBar"></div>
     <div class="container" id="mainContainer"></div>
   </main>
@@ -94,6 +94,18 @@
 
   <script>
     let container = document.getElementById("mainContainer")
+    let footer = document.querySelector("footer")
+
+    footer.addEventListener("mouseover", MouseOver)
+    footer.addEventListener("mouseout", MouseOut)
+
+    function MouseOver() {
+      document.getElementById("navbarToggleExternalContent").classList.add("show")
+    }
+
+    function MouseOut() {
+      document.getElementById("navbarToggleExternalContent").classList.remove("show")
+    }
 
     const routes = {
       "": "home.html",

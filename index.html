@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Viewer</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -17,15 +15,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="#/" id="navImg">
           <i class="fa-solid fa-house-chimney fa-lg"></i>
           Home
@@ -69,10 +65,13 @@
 
   <main>
     <div id="IDsideBar"></div>
-    <div class="container" id="mainContainer"></div>
+    <div class="mainAlligner">
+      <div class="" id="mainContainer"></div>
+    </div>
+    
   </main>
 
-  <footer class="fixed-bottom">
+  <!--<footer class="fixed-bottom">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-2">
         <h5 class="text-white h2">Collapsed content</h5>
@@ -88,16 +87,12 @@
         </button>
       </div>
     </nav>
-  </footer>
+  </footer>-->
 
   <script defer src="search.js"></script>
 
   <script>
     let container = document.getElementById("mainContainer")
-    let footer = document.querySelector("footer")
-
-    footer.addEventListener("mouseover", MouseOver)
-    footer.addEventListener("mouseout", MouseOut)
 
     function MouseOver() {
       document.getElementById("navbarToggleExternalContent").classList.add("show")
